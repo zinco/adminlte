@@ -14,7 +14,7 @@ link para instalação do Adminlte:
 diretorio para adicionar o NPM as variaves de ambiente:
     C:\Program Files\nodejs\node_modules\npm
 
-                codigo php da pagina exemplo: 
+                <!-- codigo php da pagina exemplo:  -->
 
                 @extends('adminlte::page') 
 
