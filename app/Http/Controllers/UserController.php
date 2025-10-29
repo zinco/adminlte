@@ -42,7 +42,11 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        dd("metodo show ok");
+        $usuario = User::findOrFail($id);
+
+
+
+        return view('user.show',compact('usuario'));
     }
 
     /**
