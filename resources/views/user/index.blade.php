@@ -43,7 +43,13 @@
                       <th>User</th>
                       <th>Date</th>
                       <th>Status</th>
-                      <th></th>
+                      <th> 
+                         <div class="col-md-4"></div>
+                         <div class="col-md-4">
+                             {!!html()->a(route('user.create'), 'Novo Usuário' )->class('btn btn-block bg-gradient-success btn-sm' ) !!}
+                         </div>
+                         <div class="col-md-4"></div>
+                        
                     </tr>
                   </thead>
                   <tbody>

@@ -1,5 +1,10 @@
+               
+               
                 ANOTAÇÕES DAS AULAS
 
+
+
+*********************************************************************************************
 
 3 - Laravel 12 - Instalção e configuracao admintlte
 
@@ -36,3 +41,19 @@ diretorio para adicionar o NPM as variaves de ambiente:
                 @section('js')
                 <script>console.log("HI!")</script>
                 @stop
+
+*****************************************************************************************************
+
+   4 - Laravel 12 - Lista formatada de usuários 
+        Exbimos uma lista formatada dos usuários
+        criamos os botoes com a extensão spatie html (comando para instalar: composer require spatie/laravel-html)
+
+
+
+
+*****************************************************************************************************
+
+5  - Laravel 12 - Restrição de acesso
+
+        Restrigimos o acesso a apenas usuarios logados,
+

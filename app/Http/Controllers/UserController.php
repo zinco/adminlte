@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Spatie\Html\Html;
+
 
 class UserController extends Controller
 {
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        dd('pagina create');
+       return view('user.create');
     }
 
     /**
@@ -34,7 +34,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $save = User::create($request->all());
+
+
+        if($save){
+                return redirect()
+                ->back()
+                ->with('mensagem','Cadassto realizado com sucesso');
+
+
+        }else{
+
+            return redirect()
+                ->back()
+                ->with('mensagem','Nao foi possivel cadastrar.');
+
+        }
+
+
+
+       
+        
     }
 
     /**
@@ -54,7 +74,10 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-         dd("metodo edit ok");
+         $usuario = User::findOrFail($id);
+           
+        
+        return view('user.edit',compact('usuario'));
     }
 
     /**
@@ -62,7 +85,40 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $dados = $request->all();
+        $user  = User::findOrFail($id);
+
+
+        
+
+            if($dados['password']){
+                 $save =   $user->update($dados);
+           
+            }else{
+
+                 $save =   $user->update($request->except(['password']));
+            }
+
+
+
+
+            if($save){
+                return redirect()
+                ->back()
+                ->with('mensagem','Cadastro  atualizado com sucesso');
+
+
+        }else{
+
+            return redirect()
+                ->back()
+                ->with('mensagem','Nao foi possivel atualizar o cadastro cadastrar.');
+
+        }
+    
+
+
+
     }
 
     /**
