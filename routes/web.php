@@ -24,11 +24,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
             Route::get('/index', [UserController::class, 'index'])->name('user.index');
-            Route::get('/create', [UserController::class, 'create'])->name('user.create');
-            Route::get('{id}/show',[UserController::class,'show'])->name('user.show');
+            Route::get('/create', [UserController::class, 'create'])->name('user.create'); 
+            Route::get('{id}/show', [UserController::class, 'show'])->name('user.show');           
             Route::get('{id}/edit',[UserController::class,'edit'])->name('user.edit'); 
             Route::post('store',[UserController::class,'store'])->name('user.store');
             Route::PUT('{id}/update',[UserController::class,'update'])->name('user.update'); 
+            Route::delete('{id}/destroy',[UserController::class,'destroy'])->name('user.destroy');
 
 
 

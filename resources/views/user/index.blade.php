@@ -47,6 +47,7 @@
                          <div class="col-md-4"></div>
                          <div class="col-md-4">
                              {!!html()->a(route('user.create'), 'Novo Usuário' )->class('btn btn-block bg-gradient-success btn-sm' ) !!}
+                              Usuários excluidos {{$usuariosExcluidos->count()}}
                          </div>
                          <div class="col-md-4"></div>
                         
@@ -70,7 +71,8 @@
                                  {{html()->a( route('user.edit', ['id' => $user->id]), 'Editar')->class('btn btn-block bg-gradient-info btn-sm')}}
                             </div>
                             <div class="col-md-4">
-                                {{html()->a( route('user.edit', ['id' => $user->id]), 'Excluir')->class('btn btn-block bg-gradient-danger btn-sm')}}
+                                @include('user.formExcluir')
+                               
                             </div>
                         </div>
 

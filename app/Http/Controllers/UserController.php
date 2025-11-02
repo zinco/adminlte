@@ -13,12 +13,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usuarios = User::all();
+        $usuarios = User::all()->where('status','1'); //retorna usuarios ativos
+        $usuariosExcluidos = User::all()->where('status','0'); //retorna usuarios desativados
         
 
 
 
-       return view('user.index',compact('usuarios'));
+       return view('user.index',compact('usuarios','usuariosExcluidos'));
     }
 
     /**
@@ -64,9 +65,9 @@ class UserController extends Controller
     {
         $usuario = User::findOrFail($id);
 
+       return view('user.show', compact('usuario'));
 
-
-        return view('user.show',compact('usuario'));
+        
     }
 
     /**
@@ -126,6 +127,40 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $usuario = User::findOrFail($id);
+
+
+
+        $usuario->status == 0 ? $usuario->status = 1 : $usuario->status = 0;
+
+        /*
+
+
+                if($usuaruio->status == 0)
+                {
+                    $usuario->status = 1;
+                }else{
+                    
+                    $usuario->status = 0;
+                    
+                    }
+
+
+
+
+
+
+        */
+
+
+
+
+
+
+        $usuario->update();
+        return redirect()->back();
+
+
+        
     }
 }
